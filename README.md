@@ -1,7 +1,7 @@
 # My Portfolio Website
 Welcome to the source code for my personal developer portfolio.
 
-🔗 **[View the live site here](https://nhlanhlayethu-mazibuko.netlify.app)**
+🔗 **[View the live site here]([https://nhlanhlayethu-mazibuko.netlify.app](https://6a3c16c74e402b00d31dea86--idyllic-souffle-4446ce.netlify.app/))**
 
 ## 📖 About
 This is my personal portfolio built to showcase my skills as a Front-End Developer and UI/UX student. It includes:
