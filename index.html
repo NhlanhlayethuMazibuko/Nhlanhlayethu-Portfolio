@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nhlanhlayethu Mazibuko | Portfolio</title>
+
+    <!-- [FIX] Added basic SEO meta tags so your link looks professional on social media -->
+    <meta name="description" content="Nhlanhlayethu Mazibuko - Front-End Developer & UI/UX Designer portfolio. Student at Central University of Technology." />
+    <meta property="og:title" content="Nhlanhlayethu Mazibuko | Portfolio" />
+    <meta property="og:description" content="Front-End Developer & UI/UX Designer building clean interfaces." />
+    <meta property="og:type" content="website" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <!-- [FIX] Added a hidden "Skip to content" link for keyboard accessibility (This is a professional standard) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header id="site-header">
+        <div class="container header-container">
+            
+            <!-- [FIX] Replaced `<div class="logo">` with an `<h1>` inside an `<a>` tag for proper SEO and screen-reader semantics -->
+            <a href="#hero" class="logo-link" aria-label="Nhlanhlayethu Mazibuko Home">
+                <h1 class="logo-text">Nhlanhlayethu Mazibuko</h1>
+            </a>
+
+            <nav aria-label="Main navigation">
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Work</a></li>
+                    <li><a href="#contact" class="nav-cta">Contact</a></li>
+                </ul>
+
+                <button id="theme-toggle" class="theme-btn" aria-label="Toggle dark mode">
+                    <span class="icon-sun" aria-hidden="true">☀️</span>
+                    <span class="icon-moon" aria-hidden="true">🌙</span>
+                </button>
+
+                <button class="hamburger" id="hamburger"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                    aria-controls="mobile-menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </nav>
+        </div>
+
+        <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+            <ul>
+                <li><a href="#about"   class="mobile-link">About</a></li>
+                <li><a href="#skills"  class="mobile-link">Skills</a></li>
+                <li><a href="#projects" class="mobile-link">Work</a></li>
+                <li><a href="#contact" class="mobile-link">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main id="main-content"> <!-- [FIX] Added ID for the skip link to land on -->
+        <!-- Hero Section -->
+        <section id="hero" class="section-padding">
+            <div class="container hero-container">
+                <div class="hero-text">
+                    <p class="section-label">Hello, I'm</p>
+                    
+                    <!-- [FIX] Changed heading tag from `<h1>` to `<h2>` because the Logo is now the main `<h1>` for better accessibility hierarchy -->
+                    <h2 class="hero-name">Nhlanhlayethu<br />Mazibuko</h2>
+                    
+                    <p class="hero-title">Front-End Developer &amp; UI/UX Designer</p>
+                    <p class="tagline">Building clean interfaces that actually make sense.</p>
+
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="#contact"  class="btn btn-outline">Contact Me</a>
+                    </div>
+                </div>
+
+                <div class="hero-image-wrapper">
+                    <div class="hero-glow" aria-hidden="true"></div>
+                    <div class="profile-circle">
+                        <svg width="70" height="70" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        <span class="photo-label">Add your photo</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section-padding bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">About Me</span>
+                    <h2 class="section-title">Who I am</h2>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-text reveal">
+                        <p>
+                            I'm an IT student at the Central University of Technology with a passion
+                            for building interfaces that are both functional and visually compelling.
+                            I work across the full design-to-code process, from wireframes in Figma
+                            to responsive front-end development.
+                        </p>
+                        <p>
+                            My focus is on creating clean, user-friendly interfaces that feel intuitive
+                            to use. I pay close attention to layout structure, spacing, and
+                            responsiveness, making sure my designs work well on any device.
+                        </p>
+                        <p>
+                            Outside of coding, you will find me at the gym, exploring new places, or
+                            learning something new just out of pure curiosity.
+                        </p>
+
+                        <!-- Combined Badge and CV Button -->
+                        <div class="about-actions">
+                            <div class="availability-badge">
+                                <span class="badge-dot" aria-hidden="true"></span>
+                                <span>Currently open to internships and junior opportunities in front-end development and UI/UX design</span>
+                            </div>
+                            
+                            <a href="your-cv.pdf" download class="btn btn-outline cv-btn">📄 Download CV</a>
+                        </div>
+                    </div>
+
+                    <div class="about-stats reveal">
+                        <div class="stat-box">
+                            <h3>5+</h3>
+                            <p>Languages &amp; Frameworks</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3>Design<br />to Code</h3>
+                            <p>Full Process</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section-padding">
+            <div class="container">
+                <div class="section-header center-align">
+                    <span class="section-label">Expertise</span>
+                    <h2 class="section-title">My Skills</h2>
+                </div>
+
+                <div class="skills-container">
+                    <div class="skill-card reveal">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg"
+                         alt="Microchip icon" class="skill-icon" width="48" height="48">
+                        <h3>Hardware</h3>
+                        <div class="tags">
+                            <span>Assembly</span>
+                            <span>Disassembly</span>
+                            <span>Troubleshooting</span>
+                            <span>Component ID</span>
+                            <span>PC Building</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card reveal">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" 
+                             alt="Figma logo" class="skill-icon" width="48" height="48">
+                        <h3>Design</h3>
+                        <div class="tags">
+                            <span>Figma</span>
+                            <span>UI/UX</span>
+                            <span>Wireframing</span>
+                            <span>Prototyping</span>
+                            <span>Design Systems</span>
+                            <span>User Research</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card reveal">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" 
+                             alt="HTML5 logo" class="skill-icon" width="48" height="48">
+                        <h3>Front-End</h3>
+                        <div class="tags">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                            <span>Responsive Design</span>
+                            <span class="tag-learning">React ✦</span>
+                        </div>
+                        <p class="learning-note">✦ currently learning</p>
+                    </div>
+
+                    <div class="skill-card reveal">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" 
+                        alt="C# logo" class="skill-icon" width="48" height="48">
+                        <h3>Additional Skills</h3>
+                        <div class="tags">
+                            <span>Flutter</span>
+                            <span>MySQL</span>
+                            <span>Dart</span>
+                            <span>C#</span>
+                            <span>ASP.NET</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section id="certifications" class="section-padding">
+            <div class="container">
+                
+                <div class="section-header center-align">
+                    <span class="section-label">Credentials</span>
+                    <h2 class="section-title">Certifications</h2>
+                    <p class="section-desc">Courses I've completed to strengthen my development and design skills.</p>
+                </div>
+
+                <div class="cert-grid" id="certGrid">
+                    
+                    <!-- 1. Microsoft UX Design -->
+                    <!-- [FIX] Replaced `javascript:void(0)` with a `<button>` tag. Links that go nowhere should be buttons, not anchors. -->
+                    <button class="cert-card reveal" style="text-decoration: none; display: block; color: inherit; background: none; border: none; width: 100%; text-align: left; cursor: pointer;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" 
+                             alt="Microsoft logo" class="cert-logo" width="48" height="48">
+                        <h3>UX Design Professional</h3>
+                        <p>Microsoft UX Design Certificate</p>
+                        <span class="cert-platform">Coursera</span>
+                    </button>
+
+                    <!-- 2. freeCodeCamp Responsive Web Design -->
+                    <!-- [FIX] Replaced the broken local `icons/freecodecamp.svg` with the official, reliable CDN link so it shows up immediately -->
+                    <a href="https://www.freecodecamp.org/certification/nhlanhlayethu/responsive-web-design" target="_blank" rel="noopener noreferrer" 
+                       class="cert-card reveal" style="text-decoration: none; display: block; color: inherit;">
+                        <img src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg" 
+                        alt="freeCodeCamp logo" class="cert-logo" width="48" height="48">
+                        <h3>Responsive Web Design</h3>
+                        <p>HTML5, CSS3, Flexbox &amp; CSS Grid</p>
+                        <span class="cert-platform">freeCodeCamp</span>
+                    </a>
+
+                    <!-- 3. Cisco IT Essentials -->
+                    <button class="cert-card reveal" style="text-decoration: none; display: block; color: inherit; background: none; border: none; width: 100%; text-align: left; cursor: pointer;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Cisco_logo.svg" 
+                             alt="Cisco logo" class="cert-logo" width="48" height="48">
+                        <h3>IT Essentials</h3>
+                        <p>PC Hardware &amp; Software</p>
+                        <span class="cert-platform">Cisco</span>
+                    </button>
+
+                    <!-- 4. Cisco Intro to Data Science -->
+                    <button class="cert-card reveal" style="text-decoration: none; display: block; color: inherit; background: none; border: none; width: 100%; text-align: left; cursor: pointer;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Cisco_logo.svg" 
+                             alt="Cisco logo" class="cert-logo" width="48" height="48">
+                        <h3>Intro to Data Science</h3>
+                        <p>Data Analytics &amp; Python Basics</p>
+                        <span class="cert-platform">Cisco</span>
+                    </button>
+
+                    <!-- 5. Computer Hardware Basics -->
+                    <button class="cert-card reveal hidden-cert" style="text-decoration: none; display: block; color: inherit; background: none; border: none; width: 100%; text-align: left; cursor: pointer;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Cisco_logo.svg" 
+                             alt="Cisco logo" class="cert-logo" width="48" height="48">
+                        <h3>Computer Hardware Basics</h3>
+                        <p>PC Components &amp; Assembly</p>
+                        <span class="cert-platform">Cisco</span>
+                    </button>
+
+                </div>
+
+                <div class="load-more-wrapper">
+                    <button id="loadMoreCertBtn" class="btn-load-more">Load More Certificates</button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section-padding bg-light">
+            <div class="container">
+                <div class="section-header center-align">
+                    <span class="section-label">Portfolio</span>
+                    <h2 class="section-title">Selected Work</h2>
+                    <p class="section-desc">Projects I've recently worked on.</p>
+                </div>
+
+                <div class="projects-grid" id="projectGrid">
+                    <!-- [FIX] Removed inline style="background: ..." from the .project-image divs. 
+                         I will add clean CSS classes in the CSS file so you can just set them there. -->
+                    <div class="project-card reveal">
+                        <div class="project-image project-grad-1"></div>
+                        <div class="project-info">
+                            <div class="project-type">Project</div>
+                            <h3>Coming Soon</h3>
+                            <p>Space reserved for my next big project.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal">
+                        <div class="project-image project-grad-2"></div>
+                        <div class="project-info">
+                            <div class="project-type">Project</div>
+                            <h3>Coming Soon</h3>
+                            <p>Space reserved for my next big project.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal">
+                        <div class="project-image project-grad-3"></div>
+                        <div class="project-info">
+                            <div class="project-type">Project</div>
+                            <h3>Coming Soon</h3>
+                            <p>Space reserved for my next big project.</p>
+                        </div>
+                    </div>
+
+                    <!-- Hidden Cards -->
+                    <div class="project-card reveal hidden-project">
+                        <div class="project-image project-grad-4"></div>
+                        <div class="project-info">
+                            <div class="project-type">Project</div>
+                            <h3>Coming Soon</h3>
+                            <p>Space reserved for my next big project.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal hidden-project">
+                        <div class="project-image project-grad-5"></div>
+                        <div class="project-info">
+                            <div class="project-type">Project</div>
+                            <h3>Coming Soon</h3>
+                            <p>Space reserved for my next big project.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal hidden-project">
+                        <div class="project-image project-grad-6"></div>
+                        <div class="project-info">
+                            <div class="project-type">Project</div>
+                            <h3>Coming Soon</h3>
+                            <p>Space reserved for my next big project.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="load-more-wrapper">
+                    <button id="loadMoreBtn" class="btn-load-more">Load More Projects</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="section-padding">
+        <div class="container contact-container">
+            <div class="contact-header">
+                <span class="section-label">Contact</span>
+                <h2 class="section-title">Let's work together</h2>
+                <p class="contact-desc">
+                    I'm open to internship opportunities and junior roles.
+                    Feel free to reach out.
+                </p>
+            </div>
+
+            <div class="social-links">
+                <a href="mailto:nhlacks55@gmail.com">Email Me</a>
+                <a href="https://www.linkedin.com/in/nhlanhlayethu-mazibuko-a5469a242" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com/NhlanhlayethuMazibuko" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+
+            <div class="footer-copy">
+                <p>&copy; 2026 Nhlanhlayethu Mazibuko. Designed &amp; built by me.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
