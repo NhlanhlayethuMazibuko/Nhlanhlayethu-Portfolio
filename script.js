@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const dom = {
         themeToggle: document.getElementById('theme-toggle'),
         body: document.body,
@@ -11,9 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         anchorLinks: document.querySelectorAll('a[href^="#"]'),
         loadMoreBtn: document.getElementById('loadMoreBtn'),
         hiddenProjects: document.querySelectorAll('.hidden-project'),
-        revealElements: document.querySelectorAll('.reveal'),
-        loadMoreCertBtn: document.getElementById('loadMoreCertBtn'),
-        hiddenCerts: document.querySelectorAll('.cert-card.hidden-cert')
+        revealElements: document.querySelectorAll('.reveal')
     };
 
     const DEBUG = false;
@@ -28,17 +26,18 @@ document.addEventListener('DOMContentLoaded', function() {
     var savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
         dom.body.classList.add('dark-mode');
+        dom.themeToggle.checked = true;
     }
 
-    dom.themeToggle.addEventListener('click', function() {
-        dom.body.classList.toggle('dark-mode');
-        var isDark = dom.body.classList.contains('dark-mode');
+    dom.themeToggle.addEventListener('change', function () {
+        var isDark = dom.themeToggle.checked;
+        dom.body.classList.toggle('dark-mode', isDark);
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
 
 
     // 2. Sticky Header Shadow
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         if (window.scrollY > 20) {
             dom.header.classList.add('scrolled');
         } else {
@@ -48,10 +47,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // 3. Active Nav Link on Scroll
-    var sectionObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
+    var sectionObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
             if (entry.isIntersecting) {
-                dom.navLinks.forEach(function(link) {
+                dom.navLinks.forEach(function (link) {
                     link.classList.remove('active');
                 });
                 var match = document.querySelector('.nav-links a[href="#' + entry.target.id + '"]');
@@ -64,21 +63,21 @@ document.addEventListener('DOMContentLoaded', function() {
         rootMargin: '-35% 0px -55% 0px'
     });
 
-    dom.sections.forEach(function(section) {
+    dom.sections.forEach(function (section) {
         sectionObserver.observe(section);
     });
 
 
     // 4. Mobile Menu (Hamburger)
-    dom.hamburger.addEventListener('click', function() {
+    dom.hamburger.addEventListener('click', function () {
         var isOpen = dom.hamburger.classList.toggle('open');
         dom.mobileMenu.classList.toggle('open', isOpen);
         dom.hamburger.setAttribute('aria-expanded', isOpen);
         dom.mobileMenu.setAttribute('aria-hidden', !isOpen);
     });
 
-    dom.mobileLinks.forEach(function(link) {
-        link.addEventListener('click', function() {
+    dom.mobileLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
             dom.hamburger.classList.remove('open');
             dom.mobileMenu.classList.remove('open');
             dom.hamburger.setAttribute('aria-expanded', false);
@@ -86,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && dom.mobileMenu.classList.contains('open')) {
             dom.hamburger.classList.remove('open');
             dom.mobileMenu.classList.remove('open');
@@ -97,8 +96,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // 5. Smooth Scrolling
-    dom.anchorLinks.forEach(function(link) {
-        link.addEventListener('click', function(e) {
+    dom.anchorLinks.forEach(function (link) {
+        link.addEventListener('click', function (e) {
             var targetId = this.getAttribute('href');
             if (targetId === '#') return;
             var target = document.querySelector(targetId);
@@ -117,10 +116,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 6. Load More Projects
     if (dom.loadMoreBtn && dom.hiddenProjects.length > 0) {
-        dom.loadMoreBtn.addEventListener('click', function() {
-            dom.hiddenProjects.forEach(function(project, index) {
+        dom.loadMoreBtn.addEventListener('click', function () {
+            dom.hiddenProjects.forEach(function (project, index) {
                 project.classList.remove('hidden-project');
-                setTimeout(function() {
+                setTimeout(function () {
                     project.classList.add('visible');
                 }, index * 100);
             });
@@ -130,8 +129,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // 7. Scroll Reveal Animations
-    var revealObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
+    var revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
                 revealObserver.unobserve(entry.target);
@@ -141,26 +140,12 @@ document.addEventListener('DOMContentLoaded', function() {
         threshold: 0.12
     });
 
-    dom.revealElements.forEach(function(el) {
+    dom.revealElements.forEach(function (el) {
         revealObserver.observe(el);
     });
 
 
-    // 8. Load More Certifications
-    if (dom.loadMoreCertBtn && dom.hiddenCerts.length > 0) {
-        dom.loadMoreCertBtn.addEventListener('click', function() {
-            dom.hiddenCerts.forEach(function(cert, index) {
-                cert.classList.remove('hidden-cert');
-                setTimeout(function() {
-                    cert.classList.add('visible');
-                }, index * 100);
-            });
-            dom.loadMoreCertBtn.style.display = 'none';
-        });
-    }
-
-
-    // 9. Console Greeting
+    // 8. Console Greeting
     logDebug('Hey there, fellow developer!');
     logDebug('Portfolio - Nhlanhlayethu Mazibuko');
     logDebug('Feel free to reach out -> nhlacks55@gmail.com');

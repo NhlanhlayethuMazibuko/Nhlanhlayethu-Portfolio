@@ -20,15 +20,11 @@
     --font-heading:   'Space Grotesk', sans-serif;
     --font-body:      'Inter', sans-serif;
     --transition:     0.3s ease;
-    
-    /* [FIX] Added new spacing variables to replace random pixel values */
     --space-sm:       8px;
     --space-md:       16px;
     --space-lg:       24px;
     --space-xl:       32px;
     --space-xxl:      64px;
-    
-    /* [FIX] Added component variables so dark mode is DRY */
     --card-bg:        var(--bg-white);
     --card-border:    var(--border-color);
 }
@@ -40,7 +36,6 @@
     box-sizing: border-box;
 }
 
-/* [FIX] Added global focus-visible for keyboard accessibility */
 :focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
@@ -65,7 +60,6 @@ a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 button { cursor: pointer; font-family: var(--font-body); background: none; border: none; }
 
-/* [FIX] Added hidden skip-link for screen readers */
 .skip-link {
     position: absolute;
     top: -999px;
@@ -109,7 +103,6 @@ h1, h2, h3, h4 {
     max-width: 500px;
     margin-top: 10px;
     font-size: 0.95rem;
-    /* [FIX] REMOVED white-space: nowrap; This was breaking mobile layouts by forcing text off-screen */
     margin-left: auto;
     margin-right: auto;
 }
@@ -141,7 +134,6 @@ header.scrolled { box-shadow: var(--shadow-sm); }
     align-items: center;
 }
 
-/* [FIX] Restored Logo styles to match your original size and hover */
 .logo-link {
     text-decoration: none;
     color: inherit;
@@ -150,14 +142,14 @@ header.scrolled { box-shadow: var(--shadow-sm); }
 .logo-text {
     font-family: var(--font-heading);
     font-weight: 600;
-    font-size: 1.1rem; /* Restored to original size */
+    font-size: 1.1rem; 
     color: var(--text-primary);
     white-space: nowrap;
     transition: color var(--transition);
 }
 
 .logo-text:hover {
-    color: var(--accent); /* Restored teal hover */
+    color: var(--accent); 
 }
 
 nav {
@@ -215,28 +207,76 @@ nav {
 }
 
 /* 06. THEME TOGGLE (DARK/LIGHT MODE) */
-.theme-btn {
+.theme-switch {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.theme-switch input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.theme-switch__track {
+    position: relative;
+    width: 52px;
+    height: 28px;
+    background-color: var(--border-color);
+    border-radius: 100px;
+    border: 1px solid var(--border-color);
+    transition: background-color var(--transition);
+}
+
+.theme-switch input:checked + .theme-switch__track {
+    background-color: var(--accent);
+    border-color: var(--accent);
+}
+
+.theme-switch__thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    background-color: #ffffff;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 38px;
-    height: 38px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    font-size: 1.1rem;
-    transition: border-color var(--transition), background-color var(--transition);
-    line-height: 1;
-}
-.theme-btn:hover {
-    border-color: var(--accent);
-    background-color: var(--accent-light);
+    font-size: 11px;
+    transition: transform var(--transition);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
 }
 
-.theme-btn .icon-sun  { display: none; }
-.theme-btn .icon-moon { display: inline-block; }
+.theme-switch input:checked + .theme-switch__track .theme-switch__thumb {
+    transform: translateX(24px);
+}
 
-body.dark-mode .theme-btn .icon-sun  { display: inline-block; }
-body.dark-mode .theme-btn .icon-moon { display: none; }
+.theme-switch .icon-sun  { display: none; }
+.theme-switch .icon-moon { display: inline-block; }
+.theme-switch input:checked ~ * .icon-sun  { display: inline-block; }
+.theme-switch input:checked ~ * .icon-moon { display: none; }
+.theme-switch input:focus-visible + .theme-switch__track {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.theme-switch__thumb svg {
+    color: #555555;
+    flex-shrink: 0;
+}
+
+.theme-switch input:checked + .theme-switch__track .theme-switch__thumb svg {
+    color: var(--accent);
+}
+
+.theme-switch .icon-sun  { display: none; }
+.theme-switch .icon-moon { display: block; }
+.theme-switch input:checked + .theme-switch__track .icon-sun  { display: block; }
+.theme-switch input:checked + .theme-switch__track .icon-moon { display: none; }
 
 /* 07. HAMBURGER MENU (MOBILE) */
 .hamburger {
@@ -348,20 +388,10 @@ body.dark-mode .theme-btn .icon-moon { display: none; }
     position: relative;
 }
 
-.hero-glow {
-    position: absolute;
-    width: 340px;
-    height: 340px;
-    border-radius: 50%;
-    background-color: var(--accent);
-    opacity: 0.07;
-    pointer-events: none;
-}
-
 .profile-circle {
     position: relative;
-    width: 300px;
-    height: 300px;
+    width: 360px;
+    height: 360px;
     background-color: #d9d9d9;
     border: 3px solid var(--accent);
     border-radius: 50%;
@@ -497,9 +527,9 @@ body.dark-mode .theme-btn .icon-moon { display: none; }
 /* 12. ABOUT ACTIONS (BADGE + CV BUTTON) */
 .about-actions {
     display: flex;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
     margin-top: 10px;
 }
 
@@ -638,6 +668,15 @@ body.dark-mode .cv-btn:hover {
 .project-info h3 { font-size: 1.3rem; margin-bottom: 8px; }
 .project-info p { color: var(--text-muted); font-size: 0.9rem; }
 
+.project-story {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    padding: 12px 16px;
+    border-left: 2px solid var(--accent);
+    margin-top: 12px;
+}
+
 .hidden-project { display: none; }
 
 .load-more-wrapper { text-align: center; margin-top: 48px; }
@@ -660,7 +699,6 @@ body.dark-mode .cv-btn:hover {
     transform: translateY(-3px);
 }
 
-/* Project card — tech tags row */
 .project-tags {
     display: flex;
     flex-wrap: wrap;
@@ -679,12 +717,10 @@ body.dark-mode .cv-btn:hover {
     transition: background-color 0.4s ease;
 }
 
-/* Project links row */
 .project-links {
     margin-top: 18px;
 }
 
-/* Source code link button */
 .project-link-btn {
     display: inline-flex;
     align-items: center;
@@ -699,7 +735,6 @@ body.dark-mode .cv-btn:hover {
     letter-spacing: 0.02em;
 }
 
-/* Small note at the bottom of the card */
 .project-note {
     margin-top: 12px;
     font-size: 0.78rem;
@@ -707,7 +742,6 @@ body.dark-mode .cv-btn:hover {
     font-style: italic;
 }
 
-/* Dark mode adjustments for project tags */
 body.dark-mode .project-tags span {
     background-color: #2a2a2a;
     border-color: #3a3a3a;
@@ -716,8 +750,10 @@ body.dark-mode .project-tags span {
 /* 16. CERTIFICATIONS SECTION */
 .cert-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 .cert-card {
@@ -730,8 +766,8 @@ body.dark-mode .project-tags span {
     border: 1px solid var(--card-border);
     transition: transform var(--transition), box-shadow var(--transition),
                 border-color var(--transition), background-color 0.4s ease;
-    color: inherit;        
-    text-decoration: none;     
+    color: inherit;
+    text-decoration: none;
 }
 
 .cert-card:hover {
@@ -742,8 +778,8 @@ body.dark-mode .project-tags span {
 
 .cert-logo {
     display: block;
-    margin: 0 auto 12px auto; 
-    transition: filter 0.4s ease; 
+    margin: 0 auto 12px auto;
+    transition: filter 0.4s ease;
 }
 
 .cert-card h3 {
@@ -769,17 +805,21 @@ body.dark-mode .project-tags span {
     border-radius: 50px;
 }
 
-.cert-card.hidden-cert {
-    display: none !important;
+.cert-footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.95rem;
+    color: var(--text-muted);
 }
 
-.cert-card.hidden-cert.visible {
-    display: block !important;
-    animation: fadeIn 0.5s ease forwards;
+.cert-linkedin-link {
+    color: var(--accent);
+    font-weight: 500;
+    transition: color var(--transition);
 }
 
-@media (max-width: 1024px) {
-    .cert-grid { grid-template-columns: repeat(2, 1fr); }
+.cert-linkedin-link:hover {
+    color: var(--accent-hover);
 }
 
 @media (max-width: 480px) {
@@ -920,6 +960,7 @@ body.dark-mode .btn-outline { color: var(--text-secondary); border-color: #2e2e2
     .nav-links { display: none; }
     .hamburger { display: flex; }
     .mobile-menu { display: block; }
+    .profile-circle { width: 240px; height: 240px; }
 
     .hero-container {
         flex-direction: column-reverse;

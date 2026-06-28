@@ -31,14 +31,32 @@
                 <ul class="nav-links">
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
+                    <li><a href="#certifications">Certs</a></li>
                     <li><a href="#projects">Work</a></li>
                     <li><a href="#contact" class="nav-cta">Contact</a></li>
                 </ul>
 
-                <button id="theme-toggle" class="theme-btn" aria-label="Toggle dark mode">
-                    <span class="icon-sun" aria-hidden="true">☀️</span>
-                    <span class="icon-moon" aria-hidden="true">🌙</span>
-                </button>
+                <label class="theme-switch" aria-label="Toggle dark mode">
+                    <input type="checkbox" id="theme-toggle" role="switch" />
+                    <span class="theme-switch__track">
+                        <span class="theme-switch__thumb">
+                            <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="5"/>
+                                <line x1="12" y1="1" x2="12" y2="3"/>
+                                <line x1="12" y1="21" x2="12" y2="23"/>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                                <line x1="1" y1="12" x2="3" y2="12"/>
+                                <line x1="21" y1="12" x2="23" y2="12"/>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                            </svg>
+                            <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                            </svg>
+                        </span>
+                    </span>
+                </label>
 
                 <button class="hamburger" id="hamburger"
                     aria-label="Open navigation menu"
@@ -55,6 +73,7 @@
             <ul>
                 <li><a href="#about"   class="mobile-link">About</a></li>
                 <li><a href="#skills"  class="mobile-link">Skills</a></li>
+                <li><a href="#certifications" class="mobile-link">Certs</a></li>
                 <li><a href="#projects" class="mobile-link">Work</a></li>
                 <li><a href="#contact" class="mobile-link">Contact</a></li>
             </ul>
@@ -78,11 +97,10 @@
                 </div>
 
                 <div class="hero-image-wrapper">
-                    <div class="hero-glow" aria-hidden="true"></div>
-                        <div class="profile-circle">
-                            <img src="assets/profile.png" 
-                            alt="Nhlanhlayethu Mazibuko" />
-                        </div>
+                    <div class="profile-circle">
+                        <img src="assets/profile.png" 
+                        alt="Nhlanhlayethu Mazibuko" />
+                    </div>
                 </div>
             </div>
         </section>
@@ -120,7 +138,7 @@
                                 <span>Currently open to internships and junior opportunities in front-end development and UI/UX design</span>
                             </div>
                             
-                            <a href="your-cv.pdf" download class="btn btn-outline cv-btn">📄 Download CV</a>
+                            <a href="your-cv.pdf" download class="btn btn-outline cv-btn"> Download CV</a>
                         </div>
                     </div>
 
@@ -207,7 +225,6 @@
         <!-- Certifications -->
         <section id="certifications" class="section-padding">
             <div class="container">
-                
                 <div class="section-header center-align">
                     <span class="section-label">Credentials</span>
                     <h2 class="section-title">Certifications</h2>
@@ -215,19 +232,8 @@
                 </div>
 
                 <div class="cert-grid" id="certGrid">
-                    
-                    <!-- 1. Microsoft UX Design -->
-                    <button class="cert-card reveal" style="text-decoration: none; display: block; color: inherit; background: none; border: none; width: 100%; text-align: left; cursor: pointer;">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" 
-                             alt="Microsoft logo" class="cert-logo" width="48" height="48">
-                        <h3>UX Design Professional</h3>
-                        <p>Microsoft UX Design Certificate</p>
-                        <span class="cert-platform">Coursera</span>
-                    </button>
 
-                    <!-- 2. freeCodeCamp Responsive Web Design -->
-                    <a href="https://www.freecodecamp.org/certification/nhlanhlayethu/responsive-web-design" target="_blank" rel="noopener noreferrer" 
-                       class="cert-card reveal" style="text-decoration: none; display: block; color: inherit;">
+                    <a href="https://www.freecodecamp.org/certification/nhlanhlayethu/responsive-web-design" target="_blank" rel="noopener noreferrer" class="cert-card reveal">
                         <img src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg" 
                         alt="freeCodeCamp logo" class="cert-logo" width="48" height="48">
                         <h3>Responsive Web Design</h3>
@@ -235,37 +241,23 @@
                         <span class="cert-platform">freeCodeCamp</span>
                     </a>
 
-                    <!-- 3. Cisco IT Essentials -->
-                    <button class="cert-card reveal" style="text-decoration: none; display: block; color: inherit; background: none; border: none; width: 100%; text-align: left; cursor: pointer;">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Cisco_logo.svg" 
-                             alt="Cisco logo" class="cert-logo" width="48" height="48">
-                        <h3>IT Essentials</h3>
-                        <p>PC Hardware &amp; Software</p>
-                        <span class="cert-platform">Cisco</span>
-                    </button>
-
-                    <!-- 4. Cisco Intro to Data Science -->
-                    <button class="cert-card reveal" style="text-decoration: none; display: block; color: inherit; background: none; border: none; width: 100%; text-align: left; cursor: pointer;">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Cisco_logo.svg" 
-                             alt="Cisco logo" class="cert-logo" width="48" height="48">
-                        <h3>Intro to Data Science</h3>
-                        <p>Data Analytics &amp; Python Basics</p>
-                        <span class="cert-platform">Cisco</span>
-                    </button>
-
-                    <!-- 5. Computer Hardware Basics -->
-                    <button class="cert-card reveal hidden-cert" style="text-decoration: none; display: block; color: inherit; background: none; border: none; width: 100%; text-align: left; cursor: pointer;">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Cisco_logo.svg" 
-                             alt="Cisco logo" class="cert-logo" width="48" height="48">
-                        <h3>Computer Hardware Basics</h3>
-                        <p>PC Components &amp; Assembly</p>
-                        <span class="cert-platform">Cisco</span>
-                    </button>
+                    <a href="https://www.coursera.org/account/accomplishments/professional-cert/certificate/JFXJS521OXOV" target="_blank" rel="noopener noreferrer" class="cert-card reveal">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" 
+                            alt="Microsoft logo" class="cert-logo" width="48" height="48">
+                        <h3>UX Design Professional</h3>
+                        <p>Microsoft UX Design Certificate</p>
+                        <span class="cert-platform">Coursera</span>
+                    </a>
 
                 </div>
 
-                <div class="load-more-wrapper">
-                    <button id="loadMoreCertBtn" class="btn-load-more">Load More Certificates</button>
+                <div class="cert-footer">
+                    <p>View all my certifications on 
+                        <a href="https://www.linkedin.com/in/nhlanhlayethu-mazibuko-a5469a242" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="cert-linkedin-link">LinkedIn →</a>
+                    </p>
                 </div>
 
             </div>
@@ -281,6 +273,45 @@
                 </div>
 
                 <div class="projects-grid" id="projectGrid">
+                    <!-- UI/UX Project — Nearby Events App -->
+                    <div class="project-card reveal">
+                        <div class="project-image"
+                            style="background-image: url('assets/gatherly.png');
+                                    background-size: cover;
+                                    background-position: top center;">
+                        </div>
+                        <div class="project-info">
+                            <div class="project-type">UI/UX - Figma</div>
+                            <h3>Nearby Events App</h3>
+                            <p>A conceptual mobile app designed to help users discover and 
+                            purchase tickets for events happening near their current location.
+                            Features include category filters, interactive maps, event details, and 
+                            seamless sign-up flows. Designed with a focus on speed, clarity, 
+                            and intuitive navigation.</p>
+                        
+                            <p class="project-story">
+                                <strong>Challenge:</strong> How do you find things to do in a new city you have no knowledge of?<br>
+                                <strong>Solution:</strong> A map-based interface that shows you local events in real-time.
+                            </p>
+
+                            <div class="project-tags">
+                                <span>Figma</span>
+                                <span>UI Design</span>
+                                <span>UX Research</span>
+                                <span>Prototyping</span>
+                                <span>Wireframing</span>
+                                <span>Mobile Design</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://www.figma.com/proto/XB2g1RZdqkepwZPYKCZRG3/Gatherly?node-id=44-91&p=f&viewport=949%2C156%2C0.51&t=BgXpbaPId52GeQhl-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="project-link-btn">View Figma Design →</a>
+                            </div>
+                            <p class="project-note">UI/UX design assignment demonstrating location-based flows and mobile-first thinking.</p>
+                        </div>
+                    </div>
+
                     <!-- Flutter Project — Student Assistant App -->
                     <div class="project-card reveal">
                         <div class="project-image"
@@ -342,45 +373,6 @@
                                 class="project-link-btn">View Source Code →</a>
                             </div>
                             <p class="project-note">Academic practical assessment demonstrating layered architecture &amp; database integration.</p>
-                        </div>
-                    </div>
-
-                    <!-- UI/UX Project — Nearby Events App -->
-                    <div class="project-card reveal">
-                        <div class="project-image"
-                            style="background-image: url('assets/gatherly.png');
-                                    background-size: cover;
-                                    background-position: top center;">
-                        </div>
-                        <div class="project-info">
-                            <div class="project-type">UI/UX - Figma</div>
-                            <h3>Nearby Events App</h3>
-                            <p>A conceptual mobile app designed to help users discover and 
-                            purchase tickets for events happening near their current location.
-                            Features include category filters, interactive maps, event details, and 
-                            seamless sign-up flows. Designed with a focus on speed, clarity, 
-                            and intuitive navigation.</p>
-                            <br>
-                            <p class="project-story">
-                                <strong>Challenge:</strong> How do you find things to do in a new city you have no knowledge of?<br>
-                                <strong>Solution:</strong> A map-based interface that shows you local events in real-time.
-                            </p>
-
-                            <div class="project-tags">
-                                <span>Figma</span>
-                                <span>UI Design</span>
-                                <span>UX Research</span>
-                                <span>Prototyping</span>
-                                <span>Wireframing</span>
-                                <span>Mobile Design</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://www.figma.com/proto/XB2g1RZdqkepwZPYKCZRG3/Gatherly?node-id=44-91&p=f&viewport=949%2C156%2C0.51&t=BgXpbaPId52GeQhl-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="project-link-btn">View Figma Design →</a>
-                            </div>
-                            <p class="project-note">UI/UX design assignment demonstrating location-based flows and mobile-first thinking.</p>
                         </div>
                     </div>
 
